@@ -21,18 +21,17 @@ const TravelList = () => {
               <h3>{element.destination}</h3>
               <p>{element.description}</p>
               <p>Price: {element.totalCost}</p>
-              <button className="deal">
-                {element.totalCost <= "350"
-                  ? "Great Deal"
-                  : element.totalCost >= "1500"
-                  ? "Premium"
-                  : element.allInclusive === "true"
-                  ? "All Inclusive"
-                  : "All Inclusive"}
-                {/* {element.totalCost <= 350 && (
+              <div className="all-deals">
+                {element.totalCost <= 350 && (
                   <div className="deal">Great Deal</div>
-                )} */}
-              </button>
+                )}
+                {element.totalCost <= 1500 && (
+                  <div className="deal">Premium</div>
+                )}
+                {element.allInclusive && (
+                  <div className="deal">All Inclusive</div>
+                )}
+              </div>
               <br></br>
               <button
                 className="delete"
